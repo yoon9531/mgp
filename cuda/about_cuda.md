@@ -59,13 +59,10 @@ nvcc fatal   : Cannot find compiler 'cl.exe' in PATH
 ```
 - **원인**: `nvcc`가 호출하는 호스트 컴파일러 `cl.exe` 경로가 시스템 `PATH`에 없음  
 - **해결**:
-  1. **Developer Command Prompt for VS**(x64 Native Tools)에서 빌드  
-  2. 또는 `nvcc`에 직접 경로 지정:
-     ```bash
-     nvcc -ccbin "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/<버전>/bin/Hostx64/x64" \
-          -o hello_cuda.exe hello_cuda.cu
+  1. 시스템 환경 변수 `PATH`에 `cl.exe` 폴더 추가 후 터미널 재시작
+     ```text
+     C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\Hostx64\x64
      ```
-  3. 시스템 환경 변수 `PATH`에 `cl.exe` 폴더 추가 후 터미널 재시작
 
 ---
 
@@ -92,11 +89,7 @@ Save the file in Unicode format to prevent data loss
 ```
 - **원인**: MSVC 기본 코드 페이지(CP‑949)로 외부 헤더의 유니코드 문자를 처리 못함  
 - **해결**:
-  - **컴파일 옵션**에 다음을 추가하여 경고 제거:
-    ```bash
-    nvcc -Xcompiler "/utf-8;/wd4819" -o hello_cuda.exe hello_cuda.cu
-    ```
-  - 또는 VS Code에서 **Files: Encoding**을 `UTF-8 with BOM`으로 변경
+  - VS Code에서 **Files: Encoding**을 `UTF-8 with BOM`으로 변경
 
 ---
 
