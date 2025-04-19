@@ -1,7 +1,9 @@
-﻿#include <cuda_runtime.h>
+﻿#pragma warning(disable:4819)
+#include <cuda_runtime.h>
 #include <device_launch_parameters.h>
 #include <stdio.h>
 #include <iostream>
+#pragma warning(default:4819)
 
 // Kernel function to be executed on the GPU
 // This function will be called from the CPU(Host) and executed on the GPU(Device)
