@@ -44,7 +44,11 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "thread": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "xhash": "cpp",
+        "xmemory": "cpp",
+        "xutility": "cpp",
+        "format": "cpp"
     },
     "makefile.makefilePath": "C:\\Users\\dlatj\\OneDrive\\Desktop\\2025-1\\mgp\\mgp\\HW3\\Makefile"
 }
