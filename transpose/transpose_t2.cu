@@ -3,9 +3,11 @@
 
 /*
 Try 2
-- read : coalesced
-- write : uncoalesced
+- read : partially coalesced
+- write : partially coalesced
 */
+
+
 __global__ transposeKernel_2D_0(float *A_d, float *B_d, long long n)
 {
 
@@ -14,7 +16,7 @@ __global__ transposeKernel_2D_0(float *A_d, float *B_d, long long n)
 
     if (row < n && col < n)
     {
-        B_d[col * n + row] = A_d[row * n + col];
+        B_d[col * n + row] = A_d[row * n + col]; // Partially coalesced reads
     }
 }
 
@@ -25,6 +27,6 @@ __global__ transposeKernel_2D_1(float *A_d, float *B_d, long long n) {
 
     if (row < n && col < n)
     {
-        B_d[row * n + col] = A_d[col * n + row];
+        B_d[row * n + col] = A_d[col * n + row]; // Partially coalesced writes
     }
 }
