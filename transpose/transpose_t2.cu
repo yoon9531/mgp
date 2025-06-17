@@ -8,7 +8,7 @@ Try 2
 */
 
 
-__global__ transposeKernel_2D_0(float *A_d, float *B_d, long long n)
+__global__ void transposeKernel_2D_0(float *A_d, float *B_d, long long n)
 {
 
     int row = blockDim.y * blockIdx.y + threadIdx.y;
@@ -20,7 +20,7 @@ __global__ transposeKernel_2D_0(float *A_d, float *B_d, long long n)
     }
 }
 
-__global__ transposeKernel_2D_1(float *A_d, float *B_d, long long n) {
+__global__ void transposeKernel_2D_1(float *A_d, float *B_d, long long n) {
 
     int row = blockDim.y * blockIdx.y + threadIdx.y;
     int col = blockDim.x * blockIdx.x + threadIdx.x;

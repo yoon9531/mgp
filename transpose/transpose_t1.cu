@@ -6,7 +6,7 @@ Try 1
 - read : not coalesced
 - write : coalesced
 */
-__global__ tranposeKernel_1D_0(float *A_d, float *B_d, long long n)
+__global__ void tranposeKernel_1D_0(float *A_d, float *B_d, long long n)
 {
 
     int tid = blockDim.x * blockIdx.x + threadIdx.x;
